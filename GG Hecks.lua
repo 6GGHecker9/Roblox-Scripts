@@ -73,15 +73,10 @@ local Troll = Window:NewTab("Troll")
 
 local Fling = Troll:NewSection("Fling")
 
-Fling:NewTextBox("Target Name", "Put the target name in here", function(TargetNameTxt)
-    TargetName = TargetNameTxt
-end)
-
-
 Fling:NewButton("Fling", "Fling people!", function()
     -- Settings
 local Settings = {
-   Target = TargetName -- Target Name (Not display name)
+   Target = "lexia8472" -- Target Name (Not display name)
 }
 
 -- Objects
