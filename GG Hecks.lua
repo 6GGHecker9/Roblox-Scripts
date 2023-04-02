@@ -76,7 +76,7 @@ local Fling = Troll:NewSection("Fling")
 Fling:NewButton("Fling", "Fling people!", function()
     -- Settings
 local Settings = {
-   Target = "lexia8472" -- Target Name (Not display name)
+   Target = "kaleguy123456" -- Target Name (Not display name)
 }
 
 -- Objects
