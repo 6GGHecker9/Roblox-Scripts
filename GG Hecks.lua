@@ -74,7 +74,7 @@ local Troll = Window:NewTab("Troll")
 local Fling = Troll:NewSection("Fling")
 
 Fling:NewButton("Fling", "Fling people!", function()
-    -- Settings
+-- Settings
 local Settings = {
    Target = "kaleguy123456" -- Target Name (Not display name)
 }
