@@ -73,7 +73,7 @@ local Troll = Window:NewTab("Troll")
 
 local Fling = Troll:NewSection("Fling")
 
-Section:NewTextBox("TextboxText", "TextboxInfo", function(TargetNameTxt)
+Fling:NewTextBox("Target Name", "Put the target name in here", function(TargetNameTxt)
     TargetName = TargetNameTxt
 end)
 
