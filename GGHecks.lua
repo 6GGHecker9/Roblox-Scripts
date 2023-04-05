@@ -16,7 +16,7 @@ end
 --]]
 
 --GUI
-local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))();
 local Window = Library.CreateLib("GG Hecks ( have fun 😉 )", "Ocean")
 
 
@@ -33,12 +33,12 @@ local Movement = Window:NewTab("Movement")
 local UnfairMovement = Movement:NewSection("Unfair Movement")
 
 UnfairMovement:NewButton("Fly", "Lets you fly", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/6GGHecker9/Roblox-Scripts/main/Fly.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/6GGHecker9/Roblox-Scripts/main/Fly.lua"))();
 end)
 
 
 UnfairMovement:NewButton("Left ctrl + click to teleport", "Teleport where you want! [NOT FOR MOBILE]", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/6GGHecker9/Roblox-Scripts/main/CTT.lua"))()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/6GGHecker9/Roblox-Scripts/main/CTT.lua"))();
 end)
 
 
@@ -118,6 +118,10 @@ local ScriptHub2 = ScriptHub:NewSection("Scripts Hub")
 
 ScriptHub2:NewButton("Fates-Admin", "Opens Fastes-Admin", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/6GGHecker9/Roblox-Scripts/main/FatesAdmin.lua"))();
+end)
+
+ScriptHub2:NewButton("Reviz Admin", "Opens Reviz Admin", function()
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/6GGHecker9/Roblox-Scripts/main/RevizAdmin.lua"))();
 end)
 
 --Scripts for the game you're playing
