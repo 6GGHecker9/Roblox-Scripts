@@ -75,7 +75,9 @@ local Fling = Troll:NewSection("Fling")
 
 Fling:NewButton("Fling", "Fling people!", function()
 
-    -- Settings
+-----------------------Fling-----------------------
+                        
+-- Settings
 local Settings = {
    Target = "Sofia320ls" -- Target Name (Not display name)
 }
@@ -103,6 +105,8 @@ while Target.Character.HumanoidRootPart and LocalPlayer.Character.HumanoidRootPa
 end
    
 BodyAngularVelocity.Parent = nil
+                        
+-----------------------Fling-----------------------
 
 end)
 
