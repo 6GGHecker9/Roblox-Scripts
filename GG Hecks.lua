@@ -117,7 +117,7 @@ local ScriptHub = Window:NewTab("Script Hub")
 local ScriptHub2 = ScriptHub:NewSection("Scripts Hub")
 
 ScriptHub2:NewButton("Fates-Admin", "Opens Fastes-Admin", function()
-    loadstring(game:HttpGet("https://raw.githubusercontent.com/fatesc/fates-admin/main/main.lua"))();
+    loadstring(game:HttpGet("https://raw.githubusercontent.com/6GGHecker9/Roblox-Scripts/main/FatesAdmin.lua"))();
 end)
 
 --Scripts for the game you're playing
