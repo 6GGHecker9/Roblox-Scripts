@@ -120,13 +120,14 @@ ScriptHub2:NewButton("Fates-Admin", "Opens Fastes-Admin", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/6GGHecker9/Roblox-Scripts/main/FatesAdmin.lua"))();
 end)
 
-ScriptHub2:NewButton("Fates-Admin", "Opens Fastes-Admin", function()
+ScriptHub2:NewButton("Ice Hub", "Opens Ice Hub", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/IceMael7/NewIceHub/main/Brookhaven"))();
 end)
 
 ScriptHub2:NewButton("Infinite Yield", "Opens Infinite Yield", function()
 loadstring(game:HttpGet("https://raw.githubusercontent.com/6GGHecker9/Roblox-Scripts/main/InfiniteYield.lua"))();
-
+end)
+                        
 ScriptHub2:NewButton("Reviz Admin", "Opens Reviz Admin", function()
     loadstring(game:HttpGet("https://raw.githubusercontent.com/6GGHecker9/Roblox-Scripts/main/RevizAdmin.lua"))();
 end)
