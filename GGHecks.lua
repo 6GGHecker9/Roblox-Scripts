@@ -1,20 +1,16 @@
 --Script already running?
---[[
-
------------------------------------------IN PROGRESS-----------------------------------------
-
-GAR == "nil"
-
-if GAR == 1 then
+if getgenv().GAR == true then
 game:GetService("StarterGui"):SetCore("SendNotification", {
             Title = "Error";
             Text = "Script already running!";
             })
-os.exit()
 end
 
---]]
+if getgenv().GAR = false
 
+getgenv().GAR = true
+
+          
 --GUI
 local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))();
 local Window = Library.CreateLib("GG Hecks ( have fun 😉 )", "Ocean")
@@ -44,14 +40,25 @@ end)
 
 local SetSpeed = Movement:NewSection("Set Speed")
 
-SetSpeed:NewSlider("Walk Speed", "Sets how fast you walk", 500, 0, function(ws) -- 500 (MaxValue) | 0 (MinValue)
-    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = ws
+Section:NewTextBox("Set Walk Speed", "Set Walk Speed", function(txt)
+        game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = txt
+end)
+            
+Section:NewButton("Walk Speed +", "More Walk Speed", function()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed += 1
+end)
+            
+Section:NewButton("Walk Speed -", "Less Walk Speed", function()
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed -= 1
 end)
 
-SetSpeed:NewSlider("Jump Power", "Sets how high you jump", 500, 0, function(jp) -- 500 (MaxValue) | 0 (MinValue)
-    game.Players.LocalPlayer.Character.Humanoid.JumpPower = jp
+Section:NewButton("Jump Power +", "More Jump Power", function()
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower += 1
 end)
-
+            
+Section:NewButton("Jump Power -", "Less Jump Power", function()
+    game.Players.LocalPlayer.Character.Humanoid.JumpPower -= 1
+end)
 
 SetSpeed:NewButton("Reset Walk Speed & Jump Power", "Resets Walk Speed & Jump Power!", function()
     game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = 16
@@ -134,3 +141,6 @@ end)
 
 --Scripts for the game you're playing
 
+
+--End of script
+end
