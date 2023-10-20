@@ -165,6 +165,7 @@ local SettingsText = Instance.new("TextLabel")
 local Sx = Instance.new("TextButton")
 local UICorner_73 = Instance.new("UICorner")
 local SafeplacePart = Instance.new("Part")
+local MountainPart = Instance.new("Part")
 
 --Properties:
 
@@ -1320,6 +1321,13 @@ SafeplacePart.Anchored = true
 SafeplacePart.Size = Vector3.new(200,2,200)
 SafeplacePart.Position = Vector3.new(0,200,0)
 
+MountainPart.Parent = game.Workspace
+MountainPart.Anchored = true
+MountainPart.Transparency = 1
+MountainPart.CanCollide = false
+MountainPart.Size = Vector3.new(1,1,1)
+MountainPart.Position = Vector3.new(360,700,345)
+
 FlingFrame.Active = true
 FlingDurationFrame.Active = true
 MainFrame.Active = true
@@ -1621,7 +1629,7 @@ end)
 --TP to Mountain
 Mountain.MouseButton1Click:Connect(function()
 	Teleporting2Location = true
-	LPlayer.Character:WaitForChild("HumanoidRootPart").Position = Vector3.new(360,710,345)
+	LPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = MountainPart.CFrame + Vector3.new(0,6,0)
 	wait(0.02)
 	Teleporting2Location = false
 end)
