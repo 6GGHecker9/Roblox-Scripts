@@ -1486,7 +1486,9 @@ ChasePlayer.MouseButton1Click:connect(function()
 			
 			CDB = true
 			local PartialName = SearchPlayer.Text
-			
+
+                        cam.CameraType = "Attach"
+				
 			while ChaseDur == "inf" do
 				
 				if Teleporting2Location == true then
@@ -1512,7 +1514,9 @@ ChasePlayer.MouseButton1Click:connect(function()
 				end
 				
 			end
-			
+
+		        cam.CameraType = "Attach"
+				
 			CDB = false
 		else
 			CDB = false
