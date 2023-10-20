@@ -1453,7 +1453,7 @@ SearchPlayer:GetPropertyChangedSignal("Text"):Connect(function()
 	local PartialName = SearchPlayer.Text
 
 	for i, CurrentPlayer in ipairs(Players:GetPlayers()) do
-		if string.lower(CurrentPlayer.DisplayName):sub(1, #PartialName) == string.lower(PartialName) then
+		if string.lower(CurrentPlayer.Name):sub(1, #PartialName) == string.lower(PartialName) then
 			PlayerImage.Image = Players:GetUserThumbnailAsync(CurrentPlayer.UserId,Enum.ThumbnailType.AvatarBust,Enum.ThumbnailSize.Size48x48)
 			--TargetChar = CurrentPlayer.Character
 			--TargetName = CurrentPlayer.Name
