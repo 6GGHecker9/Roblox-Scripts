@@ -1633,3 +1633,16 @@ Mountain.MouseButton1Click:Connect(function()
 	wait(0.02)
 	Teleporting2Location = false
 end)
+
+--Teleport to Player
+TeleportToPlayer.MouseButton1Click:Connect(function() 
+        for i, CurrentPlayer in ipairs(Players:GetPlayers()) do
+		if string.lower(CurrentPlayer.Name):sub(1, #PartialName) == string.lower(PartialName) then
+							
+			LPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CurrentPlayer.Character:WaitForChild("HumanoidRootPart").CFrame - CurrentPlayer.Character:WaitForChild("HumanoidRootPart").CFrame.LookVector * 3
+
+			break
+							
+		end
+	end
+end) 
