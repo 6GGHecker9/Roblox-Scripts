@@ -1621,7 +1621,7 @@ end)
 --TP to Mountain
 Mountain.MouseButton1Click:Connect(function()
 	Teleporting2Location = true
-	LPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = Vector3.new(360,710,345)
+	LPlayer.Character:WaitForChild("HumanoidRootPart").Position = Vector3.new(360,710,345)
 	wait(0.02)
 	Teleporting2Location = false
 end)
