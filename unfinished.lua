@@ -1451,6 +1451,7 @@ Username.Text = LPlayer.DisplayName
 --TP to Safeplace
 Safeplace.MouseButton1Click:connect(function()
 	Teleporting2Location = true
+	cam.CameraType = "Custom"
 	LPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = SafeplacePart.CFrame + Vector3.new(0,10,0)
 	wait(0.02)
 	Teleporting2Location = false
@@ -1629,6 +1630,7 @@ end)
 --TP to Mountain
 Mountain.MouseButton1Click:Connect(function()
 	Teleporting2Location = true
+	cam.CameraType = "Custom"
 	LPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = MountainPart.CFrame + Vector3.new(0,6,0)
 	wait(0.02)
 	Teleporting2Location = false
