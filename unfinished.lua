@@ -1439,10 +1439,44 @@ local ChaseDur = 0.5
 --local TBI = nil
 
 --Visible
+MainShadow.Visible = false
 NotifFade.Visible = false
 SettingsShadow.Visible = false
 
 --Animation
+
+--Intro anim
+local function IntroAnim()
+	MainShadow.Transparency = 1
+	MainFrame.Transparency = 1
+	GameName.Transparency = 1
+	BorderFrame.Transparency = 1
+	Logo.Transparency = 1
+	G.Transparency = 1
+	G2.Transparency = 1
+	x.Transparency = 1
+	TabScrollingFrame.Visible = false
+	MainShadow.Visible = true
+	MainShadow.Position = UDim2.new(0.5,0,1.5,0)
+	game:GetService('TweenService'):Create(MainShadow, TweenInfo.new(2,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out), {Position = UDim2.new(0.5,0,0.5,0)}):Play()
+	for i = 1,100
+		
+   	end
+end
+
+--Outro
+local function IntroAnim()
+	MainShadow.Visible = true
+	game:GetService('TweenService'):Create(MainShadow, TweenInfo.new(2,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out), {Position = UDim2.new(0.5,0,0.5,0)}):Play()
+	for i = 1,100
+		
+   	end
+end
+
+--Toggle in
+
+
+--Toggle out
 
 --User Info
 UserImage.Image = Players:GetUserThumbnailAsync(LPlayer.UserId,Enum.ThumbnailType.AvatarBust,Enum.ThumbnailSize.Size60x60)
@@ -1492,22 +1526,22 @@ end)
 ChasePlayer.MouseButton1Click:connect(function()
 	if ChaseDur == "inf" then
 		if CDB == false then
-			
+
 			CDB = true
 			local PartialName = SearchPlayer.Text
 
-                        cam.CameraType = "Attach"
-				
+			cam.CameraType = "Attach"
+
 			while ChaseDur == "inf" do
-				
+
 				if Teleporting2Location == true then
 					break
 				end
-				
+
 				if CDB == false then
 					break
 				end
-				
+
 				for i, CurrentPlayer in ipairs(Players:GetPlayers()) do
 					if string.lower(CurrentPlayer.Name):sub(1, #PartialName) == string.lower(PartialName) then
 						if Teleporting2Location == true then
@@ -1521,11 +1555,11 @@ ChasePlayer.MouseButton1Click:connect(function()
 						break
 					end
 				end
-				
+
 			end
 
-		        cam.CameraType = "Attach"
-				
+			cam.CameraType = "Attach"
+
 			CDB = false
 		else
 			CDB = false
@@ -1540,19 +1574,19 @@ ChasePlayer.MouseButton1Click:connect(function()
 				cam.CameraType = "Attach"
 
 				for i = 1,ChaseDur * 100 do
-					
+
 					if Teleporting2Location == true then
 						break
 					end
-					
+
 					for i, CurrentPlayer in ipairs(Players:GetPlayers()) do
 						if string.lower(CurrentPlayer.Name):sub(1, #PartialName) == string.lower(PartialName) then
-							
+
 							LPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CurrentPlayer.Character:WaitForChild("HumanoidRootPart").CFrame - CurrentPlayer.Character:WaitForChild("HumanoidRootPart").CFrame.LookVector * 3
 							wait(0.01)
 
 							break
-							
+
 						end
 					end
 
@@ -1561,7 +1595,7 @@ ChasePlayer.MouseButton1Click:connect(function()
 
 				cam.CameraType = "Custom"
 				break
-				
+
 			end
 		end
 
@@ -1581,21 +1615,21 @@ local function CloseUI()
 	NotifOk.Visible = false
 	ScrollingFrame.Visible = false
 	NotificationText.Text = "Are you sure you want to close the UI?"
-	
+
 	while NotifFade.Visible == true do
 		NotifNo.MouseButton1Click:Connect(function()
 			ScrollingFrame.Visible = true
 			NotifFade.Visible = false
 			Notif = false
 		end)
-		
+
 		NotifYes.MouseButton1Click:Connect(function()
 			GGTSB:Destroy()
 			script:Destroy()
 		end)
 		wait()
 	end
-	
+
 	ScrollingFrame.Visible = true
 	NotifFade.Visible = false
 	Notif = false
@@ -1638,14 +1672,16 @@ end)
 
 --Teleport to Player
 TeleportToPlayer.MouseButton1Click:Connect(function() 
-local PartialName = SearchPlayer.Text
+	Teleporting2Location = true
+	local PartialName = SearchPlayer.Text
 	for i, CurrentPlayer in ipairs(Players:GetPlayers()) do
 		if string.lower(CurrentPlayer.Name):sub(1, #PartialName) == string.lower(PartialName) then
-							
+
 			LPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CurrentPlayer.Character:WaitForChild("HumanoidRootPart").CFrame - CurrentPlayer.Character:WaitForChild("HumanoidRootPart").CFrame.LookVector * 3
 
 			break
-							
+
 		end
 	end
+	Teleporting2Location = false
 end) 
