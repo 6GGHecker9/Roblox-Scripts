@@ -1636,7 +1636,8 @@ end)
 
 --Teleport to Player
 TeleportToPlayer.MouseButton1Click:Connect(function() 
-        for i, CurrentPlayer in ipairs(Players:GetPlayers()) do
+local PartialName = SearchPlayer.Text
+	for i, CurrentPlayer in ipairs(Players:GetPlayers()) do
 		if string.lower(CurrentPlayer.Name):sub(1, #PartialName) == string.lower(PartialName) then
 							
 			LPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CurrentPlayer.Character:WaitForChild("HumanoidRootPart").CFrame - CurrentPlayer.Character:WaitForChild("HumanoidRootPart").CFrame.LookVector * 3
