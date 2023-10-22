@@ -1355,28 +1355,33 @@ TabScrollingFrame.Active = true
 
 local UIS = game:GetService('UserInputService')
 local dragToggle = nil
-local dragSpeed = 0.25
+local dragSpeed = 0.2
 local dragStart = nil
 local startPos = nil
+local movingSFrame = false
 
 local function updateInput(input)
-	local delta = input.Position - dragStart
-	local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
-		startPos.Y.Scale, startPos.Y.Offset + delta.Y)
-	game:GetService('TweenService'):Create(MainShadow, TweenInfo.new(dragSpeed), {Position = position}):Play()
+	if movingSFrame == false then
+		local delta = input.Position - dragStart
+		local position = UDim2.new(startPos.X.Scale, startPos.X.Offset + delta.X,
+			startPos.Y.Scale, startPos.Y.Offset + delta.Y)
+		game:GetService('TweenService'):Create(MainShadow, TweenInfo.new(dragSpeed), {Position = position}):Play()
+	end
 end
 
 MainFrame.InputBegan:Connect(function(input)
-	if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
-		dragToggle = true
-		dragStart = input.Position
-		startPos = MainShadow.Position
-		input.Changed:Connect(function()
-			if input.UserInputState == Enum.UserInputState.End then
-				dragToggle = false
-			end
-		end)
-	end
+
+		if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+			dragToggle = true
+			dragStart = input.Position
+			startPos = MainShadow.Position
+			input.Changed:Connect(function()
+				if input.UserInputState == Enum.UserInputState.End then
+					dragToggle = false
+				end
+			end)
+		end
+
 end)
 
 UIS.InputChanged:Connect(function(input)
@@ -1390,7 +1395,6 @@ end)
 --SettingsFrame Draggable
 
 local SdragToggle = nil
-local SdragSpeed = 0.25
 local SdragStart = nil
 local SstartPos = nil
 
@@ -1398,11 +1402,12 @@ local function SupdateInput(input)
 	local delta = input.Position - SdragStart
 	local position = UDim2.new(SstartPos.X.Scale, SstartPos.X.Offset + delta.X,
 		SstartPos.Y.Scale, SstartPos.Y.Offset + delta.Y)
-	game:GetService('TweenService'):Create(SettingsShadow, TweenInfo.new(SdragSpeed), {Position = position}):Play()
+	game:GetService('TweenService'):Create(SettingsShadow, TweenInfo.new(dragSpeed), {Position = position}):Play()
 end
 
 SettingsFrame.InputBegan:Connect(function(input)
 	if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then 
+		movingSFrame = true
 		SdragToggle = true
 		SdragStart = input.Position
 		SstartPos = SettingsShadow.Position
@@ -1411,6 +1416,12 @@ SettingsFrame.InputBegan:Connect(function(input)
 				SdragToggle = false
 			end
 		end)
+	end
+end)
+
+SettingsFrame.InputEnded:Connect(function(input)
+	if (input.UserInputType == Enum.UserInputType.MouseButton1 or input.UserInputType == Enum.UserInputType.Touch) then
+		movingSFrame = false
 	end
 end)
 
@@ -1428,10 +1439,18 @@ end)
 local Players = game:GetService('Players')
 local LPlayer = Players.LocalPlayer
 local CDB = false
+local ODB = false
+local CIADB = false
+local COADB = false
 local cam = workspace.CurrentCamera
 local Teleporting2Location = false
 local Notif = false
 local ChaseDur = 0.5
+local Toggled = true
+local IntroEnded = false
+local OutroEnded = false
+local CloseNotif = false
+local DisAnim = false
 --local TargetChar = nil
 --local TargetName = nil
 --local prevCharName = nil
@@ -1440,6 +1459,7 @@ local ChaseDur = 0.5
 
 --Visible
 MainShadow.Visible = false
+ToggleShadow.Visible = false
 NotifFade.Visible = false
 SettingsShadow.Visible = false
 
@@ -1447,6 +1467,7 @@ SettingsShadow.Visible = false
 
 --Intro anim
 local function IntroAnim()
+	
 	MainShadow.ImageTransparency = 1
 	MainFrame.BackgroundTransparency = 1
 	GameName.TextTransparency = 1
@@ -1464,70 +1485,206 @@ local function IntroAnim()
 	UICornerFrame.BackgroundTransparency = 1
 	NotifFade.BackgroundTransparency = 1
 	NotificationFrame.BackgroundTransparency = 1
+	NotifShadow.ImageTransparency = 1
+	NotificationText.TextTransparency = 1
+	OpenSettings.BackgroundTransparency = 1
+	OpenSettings.ImageTransparency = 1
 	NotifOk.Visible = false
 	NotifYes.Visible = false
 	NotifNo.Visible = false
 	ScrollingFrame.Visible = false
 	TabScrollingFrame.Visible = false
 	MainShadow.Visible = true
+	ToggleShadow.Visible = true
 	MainShadow.Position = UDim2.new(0.5,0,1.5,0)
 	game:GetService('TweenService'):Create(MainShadow, TweenInfo.new(2,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out), {Position = UDim2.new(0.5,0,0.5,0)}):Play()
 	
-	for i = 1,100 do
-		MainShadow.ImageTransparency -= 1
-		MainFrame.BackgroundTransparency -= 1
-		GameName.TextTransparency -= 1
-		BorderFrame.BackgroundTransparency -= 1	
-		Logo.BackgroundTransparency -= 1
-		G.TextTransparency -= 1
-		G2.TextTransparency -= 1
-		x.BackgroundTransparency -= 1
-		x.TextTransparency -= 1
-		HideTabs.BackgroundTransparency -= 1
-		HideTabs.TextTransparency -= 1
-		ToggleUI.BackgroundTransparency -= 1
-		ToggleUI.TextTransparency -= 1
-		ToggleShadow.ImageTransparency -= 1
-		UICornerFrame.BackgroundTransparency -= 1
-		NotifFade.BackgroundTransparency -= 1
-		NotificationFrame.BackgroundTransparency -= 1
-   	end
-
-	NotificationText.Text = "Made by GG"
-	NotifOk.Visible = true
-	NotifYes.Visible = true
-	NotifNo.Visible = true
-
-	for i = 1,100 do
-		NotifFade.BackgroundTransparency -= 0.002
-		NotificationFrame.BackgroundTransparency -= 0.1
-		NotificationText.TextTransparency -= 0.1
+	for i = 1,20 do
+		MainShadow.ImageTransparency -= 0.05
+		MainFrame.BackgroundTransparency -= 0.05
+		GameName.TextTransparency -= 0.05
+		BorderFrame.BackgroundTransparency -= 0.05
+		x.BackgroundTransparency -= 0.05
+		x.TextTransparency -= 0.05
+		HideTabs.BackgroundTransparency -= 0.05
+		HideTabs.TextTransparency -= 0.05
+		ToggleUI.BackgroundTransparency -= 0.05
+		ToggleUI.TextTransparency -= 0.05
+		ToggleShadow.ImageTransparency -= 0.05
+		UICornerFrame.BackgroundTransparency -= 0.05
+		OpenSettings.BackgroundTransparency -= 0.05
+		OpenSettings.ImageTransparency -= 0.05
+		Logo.BackgroundTransparency -= 0.05
+		G.TextTransparency -= 0.05
+		G2.TextTransparency -= 0.05
+		wait(0.01)
 	end
+	
+	wait(1)
+	NotificationText.Text = "Made by GG"
+	NotifFade.Visible = true
 
+	for i = 1,20 do
+		NotificationFrame.BackgroundTransparency -= 0.05
+		NotifShadow.ImageTransparency -= 0.05
+		NotifFade.BackgroundTransparency -= 0.04
+		NotificationFrame.BackgroundTransparency -= 0.05
+		NotificationText.TextTransparency -= 0.05
+		wait(0.01)
+	end
+	
+	wait(2)
+
+	for i = 1,20 do
+		NotificationFrame.BackgroundTransparency += 0.05
+		NotifShadow.ImageTransparency += 0.05
+		NotifFade.BackgroundTransparency += 0.04
+		NotificationFrame.BackgroundTransparency += 0.05
+		NotificationText.TextTransparency += 0.05
+		wait(0.01)
+	end
+	
 	ScrollingFrame.Visible = true
 	TabScrollingFrame.Visible = true
-
-	for i = 1,100 do
-		NotifFade.BackgroundTransparency += 0.002
-		NotificationFrame.BackgroundTransparency += 0.1
-		NotificationText.TextTransparency +=0.1
-	end
-
+	NotifFade.Visible = false
+	IntroEnded = true
+	
 end
 
 --Outro
 local function OutroAnim()
-	MainShadow.Visible = true
-	game:GetService('TweenService'):Create(MainShadow, TweenInfo.new(2,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out), {Position = UDim2.new(0.5,0,0.5,0)}):Play()
-	for i = 1,100 do
+	
+	if ODB == false then
+		ODB = true
 		
-   	end
+		SettingsShadow.Visible = false
+		
+		for i = 1,20 do
+			NotificationFrame.BackgroundTransparency += 0.05
+			NotifShadow.ImageTransparency += 0.05
+			NotifFade.BackgroundTransparency += 0.04
+			NotificationFrame.BackgroundTransparency += 0.05
+			NotificationText.TextTransparency += 0.05
+			NotifYes.Transparency += 0.05
+			NotifNo.Transparency += 0.05
+			wait(0.01)
+		end
+		
+		NotifYes.Visible = false
+		NotifNo.Visible = false
+		
+		NotificationText.Text = "Goodbye!"
+		
+		for i = 1,20 do
+			NotificationFrame.BackgroundTransparency -= 0.05
+			NotifShadow.ImageTransparency -= 0.05
+			NotifFade.BackgroundTransparency -= 0.04
+			NotificationFrame.BackgroundTransparency -= 0.05
+			NotificationText.TextTransparency -= 0.05
+			wait(0.01)
+		end
+		
+		wait(2)
+		
+		game:GetService('TweenService'):Create(MainShadow, TweenInfo.new(2,Enum.EasingStyle.Exponential,Enum.EasingDirection.In), {Position = MainShadow.Position + UDim2.new(0,0,1.5,0)}):Play()
+		
+		wait(1)
+		
+		for i = 1,20 do
+			MainShadow.ImageTransparency += 0.05
+			MainFrame.BackgroundTransparency += 0.05
+			GameName.TextTransparency += 0.05
+			BorderFrame.BackgroundTransparency += 0.05
+			x.BackgroundTransparency += 0.05
+			x.TextTransparency += 0.05
+			HideTabs.BackgroundTransparency += 0.05
+			HideTabs.TextTransparency += 0.05
+			ToggleUI.BackgroundTransparency += 0.05
+			ToggleUI.TextTransparency += 0.05
+			ToggleShadow.ImageTransparency += 0.05
+			UICornerFrame.BackgroundTransparency += 0.05
+			OpenSettings.BackgroundTransparency += 0.05
+			OpenSettings.ImageTransparency += 0.05
+			Logo.BackgroundTransparency += 0.05
+			G.TextTransparency += 0.05
+			G2.TextTransparency += 0.05
+			NotificationFrame.BackgroundTransparency += 0.05
+			NotifShadow.ImageTransparency += 0.05
+			NotifFade.BackgroundTransparency += 0.04
+			NotificationFrame.BackgroundTransparency += 0.05
+			NotificationText.TextTransparency += 0.05
+			wait(0.01)
+		end
+		
+		wait(1)
+		
+		OutroEnded = true
+	end
+	
 end
 
 --Toggle in
+local function ToggleInAnim()
 
+	
+
+end
 
 --Toggle out
+
+
+--Close Notif
+local function CNIAnim()
+	NotificationText.Text = "Are you sure you want to close the UI?"
+	NotifFade.BackgroundTransparency = 1
+	NotifShadow.ImageTransparency = 1
+	NotificationFrame.BackgroundTransparency = 1
+	NotificationText.TextTransparency = 1
+	NotifYes.Transparency = 1
+	NotifNo.Transparency = 1
+	NotifFade.Visible = true
+	NotifNo.Visible = true
+	NotifYes.Visible = true
+	NotifOk.Visible = false
+	ScrollingFrame.Visible = false
+	TabScrollingFrame.Visible = false
+	
+	for i = 1,20 do
+		NotificationFrame.BackgroundTransparency -= 0.05
+		NotifShadow.ImageTransparency -= 0.05
+		NotifFade.BackgroundTransparency -= 0.04
+		NotificationFrame.BackgroundTransparency -= 0.05
+		NotificationText.TextTransparency -= 0.05
+		NotifNo.Transparency -= 0.05
+		NotifYes.Transparency -= 0.05
+		wait(0.01)
+	end
+	
+end
+
+local function CNOAnim()
+	
+	if COADB == false then
+		COADB = true
+
+		for i = 1,20 do
+			NotificationFrame.BackgroundTransparency += 0.05
+			NotifShadow.ImageTransparency += 0.05
+			NotifFade.BackgroundTransparency += 0.04
+			NotificationFrame.BackgroundTransparency += 0.05
+			NotificationText.TextTransparency += 0.05
+			NotifNo.Transparency += 0.05
+			NotifYes.Transparency += 0.05
+			wait(0.01)
+		end
+	
+		ScrollingFrame.Visible = true
+		TabScrollingFrame.Visible = true
+	
+		CloseNotif = false
+		COADB = false
+	end
+end
 
 --User Info
 UserImage.Image = Players:GetUserThumbnailAsync(LPlayer.UserId,Enum.ThumbnailType.AvatarBust,Enum.ThumbnailSize.Size60x60)
@@ -1659,40 +1816,65 @@ end)
 --Close UI
 
 --Close Notification
-local function CloseUI()
-	Notif = true
-	NotifFade.Visible = true
-	NotifNo.Visible = true
-	NotifYes.Visible = true
-	NotifOk.Visible = false
-	ScrollingFrame.Visible = false
-	NotificationText.Text = "Are you sure you want to close the UI?"
+local function NotifCloseUI()
+	
+	if CIADB == false then
+		
+		CIADB = true
+		CloseNotif = true
+		
+		if DisAnim == false then
+			CNIAnim()
+		else
+			NotifFade.BackgroundTransparency = 0.2
+			NotifShadow.ImageTransparency = 0
+			NotificationFrame.BackgroundTransparency = 0
+			NotificationText.TextTransparency = 0
+			NotifFade.Visible = true
+			NotifNo.Visible = true
+			NotifYes.Visible = true
+			NotifOk.Visible = false
+			ScrollingFrame.Visible = false
+			TabScrollingFrame.Visible = false
+			NotificationText.Text = "Are you sure you want to close the UI?"
+		end
+			
+		while CloseNotif == true do
+			NotifNo.MouseButton1Click:Connect(function()
+				CNOAnim()
+			end)
 
-	while NotifFade.Visible == true do
-		NotifNo.MouseButton1Click:Connect(function()
-			ScrollingFrame.Visible = true
-			NotifFade.Visible = false
-			Notif = false
-		end)
+			NotifYes.MouseButton1Click:Connect(function()
+				cam.CameraType = "Custom"
+				OutroAnim()
+				while OutroEnded == false do
+					wait() 
+				end
+				GGTSB:Destroy()
+				script:Destroy()
+			end)
+			wait()
+		end
 
-		NotifYes.MouseButton1Click:Connect(function()
-			cam.CameraType = "Custom"
-			GGTSB:Destroy()
-			script:Destroy()
-		end)
-		wait()
+		ScrollingFrame.Visible = true
+		TabScrollingFrame.Visible = true
+		NotifFade.Visible = false
+		CloseNotif = false
+		CIADB = false
+		
 	end
-
-	ScrollingFrame.Visible = true
-	NotifFade.Visible = false
-	Notif = false
 end
 
 --x is pressed?
 x.MouseButton1Click:Connect(function()
-	if Notif == false then
-		CloseUI()
+	if IntroEnded == true then
+		NotifCloseUI()
 	end
+end)
+
+--Sx is pressed?
+Sx.MouseButton1Click:Connect(function()
+	SettingsShadow.Visible = false
 end)
 
 --Settings
@@ -1740,5 +1922,87 @@ TeleportToPlayer.MouseButton1Click:Connect(function()
 	Teleporting2Location = false
 end) 
 
+--Themes
+Green.MouseButton1Click:Connect(function()
+	BorderFrame.BackgroundColor3 = Green.BackgroundColor3
+	G.TextColor3 = Green.BackgroundColor3
+	G2.TextColor3 = Green.BackgroundColor3
+	ChaseDurationFrame.BackgroundColor3 = Green.BackgroundColor3
+	ESPFrame.BackgroundColor3 = Green.BackgroundColor3
+	FlingDurationFrame.BackgroundColor3 = Green.BackgroundColor3
+	FlingFrame.BackgroundColor3 = Green.BackgroundColor3
+	HotkeyFrame.BackgroundColor3 = Green.BackgroundColor3
+	SearchPlayerFrame.BackgroundColor3 = Green.BackgroundColor3
+	TeleportLocationFrame.BackgroundColor3 = Green.BackgroundColor3
+	TeleportPlayerFrame.BackgroundColor3 = Green.BackgroundColor3
+	Username.TextColor3 = Green.BackgroundColor3
+	Transparency.BackgroundColor3 = Green.BackgroundColor3
+	TransparencyCornerFrame.BackgroundColor3 = Green.BackgroundColor3
+	ThemeFrame.BackgroundColor3 = Green.BackgroundColor3
+	DisableAnimFrame.BackgroundColor3 = Green.BackgroundColor3
+	DisAnimCheckMark.BackgroundColor3 = Green.BackgroundColor3
+end)
+
+Blue.MouseButton1Click:Connect(function()
+	BorderFrame.BackgroundColor3 = Blue.BackgroundColor3
+	G.TextColor3 = Blue.BackgroundColor3
+	G2.TextColor3 = Blue.BackgroundColor3
+	ChaseDurationFrame.BackgroundColor3 = Blue.BackgroundColor3
+	ESPFrame.BackgroundColor3 = Blue.BackgroundColor3
+	FlingDurationFrame.BackgroundColor3 = Blue.BackgroundColor3
+	FlingFrame.BackgroundColor3 = Blue.BackgroundColor3
+	HotkeyFrame.BackgroundColor3 = Blue.BackgroundColor3
+	SearchPlayerFrame.BackgroundColor3 = Blue.BackgroundColor3
+	TeleportLocationFrame.BackgroundColor3 = Blue.BackgroundColor3
+	TeleportPlayerFrame.BackgroundColor3 = Blue.BackgroundColor3
+	Username.TextColor3 = Blue.BackgroundColor3
+	Transparency.BackgroundColor3 = Blue.BackgroundColor3
+	TransparencyCornerFrame.BackgroundColor3 = Blue.BackgroundColor3
+	ThemeFrame.BackgroundColor3 = Blue.BackgroundColor3
+	DisableAnimFrame.BackgroundColor3 = Blue.BackgroundColor3
+	DisAnimCheckMark.BackgroundColor3 = Blue.BackgroundColor3
+end)
+
+Orange.MouseButton1Click:Connect(function()
+	BorderFrame.BackgroundColor3 = Orange.BackgroundColor3
+	G.TextColor3 = Orange.BackgroundColor3
+	G2.TextColor3 = Orange.BackgroundColor3
+	ChaseDurationFrame.BackgroundColor3 = Orange.BackgroundColor3
+	ESPFrame.BackgroundColor3 = Orange.BackgroundColor3
+	FlingDurationFrame.BackgroundColor3 = Orange.BackgroundColor3
+	FlingFrame.BackgroundColor3 = Orange.BackgroundColor3
+	HotkeyFrame.BackgroundColor3 = Orange.BackgroundColor3
+	SearchPlayerFrame.BackgroundColor3 = Orange.BackgroundColor3
+	TeleportLocationFrame.BackgroundColor3 = Orange.BackgroundColor3
+	TeleportPlayerFrame.BackgroundColor3 = Orange.BackgroundColor3
+	Username.TextColor3 = Orange.BackgroundColor3
+	Transparency.BackgroundColor3 = Orange.BackgroundColor3
+	TransparencyCornerFrame.BackgroundColor3 = Orange.BackgroundColor3
+	ThemeFrame.BackgroundColor3 = Orange.BackgroundColor3
+	DisableAnimFrame.BackgroundColor3 = Orange.BackgroundColor3
+	DisAnimCheckMark.BackgroundColor3 = Orange.BackgroundColor3
+end)
+
+Purple.MouseButton1Click:Connect(function()
+	BorderFrame.BackgroundColor3 = Purple.BackgroundColor3
+	G.TextColor3 = Purple.BackgroundColor3
+	G2.TextColor3 = Purple.BackgroundColor3
+	ChaseDurationFrame.BackgroundColor3 = Purple.BackgroundColor3
+	ESPFrame.BackgroundColor3 = Purple.BackgroundColor3
+	FlingDurationFrame.BackgroundColor3 = Purple.BackgroundColor3
+	FlingFrame.BackgroundColor3 = Purple.BackgroundColor3
+	HotkeyFrame.BackgroundColor3 = Purple.BackgroundColor3
+	SearchPlayerFrame.BackgroundColor3 = Purple.BackgroundColor3
+	TeleportLocationFrame.BackgroundColor3 = Purple.BackgroundColor3
+	TeleportPlayerFrame.BackgroundColor3 = Purple.BackgroundColor3
+	Username.TextColor3 = Purple.BackgroundColor3
+	Transparency.BackgroundColor3 = Purple.BackgroundColor3
+	TransparencyCornerFrame.BackgroundColor3 = Purple.BackgroundColor3
+	ThemeFrame.BackgroundColor3 = Purple.BackgroundColor3
+	DisableAnimFrame.BackgroundColor3 = Purple.BackgroundColor3
+	DisAnimCheckMark.BackgroundColor3 = Purple.BackgroundColor3
+end)
+
 --IntroAnim Play
+wait(2)
 IntroAnim()
