@@ -1447,20 +1447,23 @@ SettingsShadow.Visible = false
 
 --Intro anim
 local function IntroAnim()
-	MainShadow.Transparency = 1
-	MainFrame.Transparency = 1
-	GameName.Transparency = 1
-	BorderFrame.Transparency = 1
-	Logo.Transparency = 1
-	G.Transparency = 1
-	G2.Transparency = 1
-	x.Transparency = 1
-	HideTabs.Transparency = 1
-	Toggle.Transparency = 1
-	ToggleShadow.Transparency = 1
-	UICornerFrame.Transparency = 1
-	NotifFade.Transparency = 1
-	NotificationFrame.Transparency = 1
+	MainShadow.BackgroundTransparency = 1
+	MainFrame.BackgroundTransparency = 1
+	GameName.TextTransparency = 1
+	BorderFrame.BackgroundTransparency = 1
+	Logo.BackgroundTransparency = 1
+	G.TextTransparency = 1
+	G2.TextTransparency = 1
+	x.BackgroundTransparency = 1
+	x.TextTransparency = 1
+	HideTabs.BackgroundTransparency = 1
+	HideTabs.TextTransparency = 1
+	Toggle.BackgroundTransparency = 1
+	Toggle.TextTransparency = 1
+	ToggleShadow.ImageTransparency = 1
+	UICornerFrame.BackgroundTransparency = 1
+	NotifFade.BackgroundTransparency = 1
+	NotificationFrame.BackgroundTransparency = 1
 	NotifOk.Visible = false
 	NotifYes.Visible = false
 	NotifNo.Visible = false
@@ -1470,35 +1473,40 @@ local function IntroAnim()
 	MainShadow.Position = UDim2.new(0.5,0,1.5,0)
 	game:GetService('TweenService'):Create(MainShadow, TweenInfo.new(2,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out), {Position = UDim2.new(0.5,0,0.5,0)}):Play()
 	for i = 1,100
-		MainShadow.Transparency -= 0.1
-		MainFrame.Transparency -= 0.1
-		GameName.Transparency -= 0.1
-		BorderFrame.Transparency -= 0.1
-		Logo.Transparency -= 0.1
-		G.Transparency -= 0.1
-		G2.Transparency -= 0.1
-		x.Transparency -= 0.1
-		HideTabs.Transparency -= 0.1
-		Toggle.Transparency -= 0.1
-		ToggleShadow.Transparency -= 0.1
-		UICornerFrame.Transparency -= 0.1
+		MainShadow.BackgroundTransparency -= 1
+		MainFrame.BackgroundTransparency -= 1
+		GameName.TextTransparency -= 1
+		BorderFrame.BackgroundTransparency -= 1	
+		Logo.BackgroundTransparency -= 1
+		G.TextTransparency -= 1
+		G2.TextTransparency -= 1
+		x.BackgroundTransparency -= 1
+		x.TextTransparency -= 1
+		HideTabs.BackgroundTransparency -= 1
+		HideTabs.TextTransparency -= 1
+		Toggle.BackgroundTransparency -= 1
+		Toggle.TextTransparency -= 1
+		ToggleShadow.ImageTransparency -= 1
+		UICornerFrame.BackgroundTransparency -= 1
+		NotifFade.BackgroundTransparency -= 1
+		NotificationFrame.BackgroundTransparency -= 1
    	end
 
 	NotificationText.Text = "Made by GG"
 
 	for i = 1,100
-		NotifFade.Transparency -= 0.002
-		NotificationFrame.Transparency -= 0.1
-		NotificationText.Transparency -=0.1
+		NotifFade.BackgroundTransparency -= 0.002
+		NotificationFrame.BackgroundTransparency -= 0.1
+		NotificationText.TextTransparency -= 0.1
 	end
 
 	ScrollingFrame.Visible = false
 	TabScrollingFrame.Visible = false
 
 	for i = 1,100
-		NotifFade.Transparency += 0.002
-		NotificationFrame.Transparency += 0.1
-		NotificationText.Transparency +=0.1
+		NotifFade.BackgroundTransparency += 0.002
+		NotificationFrame.BackgroundTransparency += 0.1
+		NotificationText.TextTransparency +=0.1
 	end
 
 end
