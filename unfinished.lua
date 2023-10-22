@@ -2005,7 +2005,7 @@ Purple.MouseButton1Click:Connect(function()
 end)
 
 --Hide Tabs
-HideTabs.MouseButton1Click:Connect(Function()
+HideTabs.MouseButton1Click:Connect(function()
 
 	if TabsHidden == false then
 
