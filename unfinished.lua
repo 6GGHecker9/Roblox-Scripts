@@ -1447,7 +1447,7 @@ SettingsShadow.Visible = false
 
 --Intro anim
 local function IntroAnim()
-	MainShadow.BackgroundTransparency = 1
+	MainShadow.ImageTransparency = 1
 	MainFrame.BackgroundTransparency = 1
 	GameName.TextTransparency = 1
 	BorderFrame.BackgroundTransparency = 1
@@ -1474,7 +1474,7 @@ local function IntroAnim()
 	game:GetService('TweenService'):Create(MainShadow, TweenInfo.new(2,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out), {Position = UDim2.new(0.5,0,0.5,0)}):Play()
 	
 	for i = 1,100 do
-		MainShadow.BackgroundTransparency -= 1
+		MainShadow.ImageTransparency -= 1
 		MainFrame.BackgroundTransparency -= 1
 		GameName.TextTransparency -= 1
 		BorderFrame.BackgroundTransparency -= 1	
@@ -1494,6 +1494,9 @@ local function IntroAnim()
    	end
 
 	NotificationText.Text = "Made by GG"
+	NotifOk.Visible = true
+	NotifYes.Visible = true
+	NotifNo.Visible = true
 
 	for i = 1,100 do
 		NotifFade.BackgroundTransparency -= 0.002
@@ -1501,8 +1504,8 @@ local function IntroAnim()
 		NotificationText.TextTransparency -= 0.1
 	end
 
-	ScrollingFrame.Visible = false
-	TabScrollingFrame.Visible = false
+	ScrollingFrame.Visible = true
+	TabScrollingFrame.Visible = true
 
 	for i = 1,100 do
 		NotifFade.BackgroundTransparency += 0.002
