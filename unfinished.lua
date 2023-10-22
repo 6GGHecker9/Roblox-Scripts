@@ -1458,8 +1458,8 @@ local function IntroAnim()
 	x.TextTransparency = 1
 	HideTabs.BackgroundTransparency = 1
 	HideTabs.TextTransparency = 1
-	Toggle.BackgroundTransparency = 1
-	Toggle.TextTransparency = 1
+	ToggleUI.BackgroundTransparency = 1
+	ToggleUI.TextTransparency = 1
 	ToggleShadow.ImageTransparency = 1
 	UICornerFrame.BackgroundTransparency = 1
 	NotifFade.BackgroundTransparency = 1
@@ -1472,7 +1472,8 @@ local function IntroAnim()
 	MainShadow.Visible = true
 	MainShadow.Position = UDim2.new(0.5,0,1.5,0)
 	game:GetService('TweenService'):Create(MainShadow, TweenInfo.new(2,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out), {Position = UDim2.new(0.5,0,0.5,0)}):Play()
-	for i = 1,100
+	
+	for i = 1,100 do
 		MainShadow.BackgroundTransparency -= 1
 		MainFrame.BackgroundTransparency -= 1
 		GameName.TextTransparency -= 1
@@ -1484,8 +1485,8 @@ local function IntroAnim()
 		x.TextTransparency -= 1
 		HideTabs.BackgroundTransparency -= 1
 		HideTabs.TextTransparency -= 1
-		Toggle.BackgroundTransparency -= 1
-		Toggle.TextTransparency -= 1
+		ToggleUI.BackgroundTransparency -= 1
+		ToggleUI.TextTransparency -= 1
 		ToggleShadow.ImageTransparency -= 1
 		UICornerFrame.BackgroundTransparency -= 1
 		NotifFade.BackgroundTransparency -= 1
@@ -1494,7 +1495,7 @@ local function IntroAnim()
 
 	NotificationText.Text = "Made by GG"
 
-	for i = 1,100
+	for i = 1,100 do
 		NotifFade.BackgroundTransparency -= 0.002
 		NotificationFrame.BackgroundTransparency -= 0.1
 		NotificationText.TextTransparency -= 0.1
@@ -1503,7 +1504,7 @@ local function IntroAnim()
 	ScrollingFrame.Visible = false
 	TabScrollingFrame.Visible = false
 
-	for i = 1,100
+	for i = 1,100 do
 		NotifFade.BackgroundTransparency += 0.002
 		NotificationFrame.BackgroundTransparency += 0.1
 		NotificationText.TextTransparency +=0.1
@@ -1515,7 +1516,7 @@ end
 local function OutroAnim()
 	MainShadow.Visible = true
 	game:GetService('TweenService'):Create(MainShadow, TweenInfo.new(2,Enum.EasingStyle.Exponential,Enum.EasingDirection.Out), {Position = UDim2.new(0.5,0,0.5,0)}):Play()
-	for i = 1,100
+	for i = 1,100 do
 		
    	end
 end
