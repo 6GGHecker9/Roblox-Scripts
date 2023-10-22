@@ -1517,10 +1517,10 @@ local function IntroAnim()
 		Logo.BackgroundTransparency -= 0.05
 		G.TextTransparency -= 0.05
 		G2.TextTransparency -= 0.05
-		wait(0.01)
+		task.wait(0.01)
 	end
 	
-	wait(1)
+	task.wait(1)
 	NotificationText.Text = "Made by GG"
 	NotifFade.Visible = true
 
@@ -1530,10 +1530,10 @@ local function IntroAnim()
 		NotifFade.BackgroundTransparency -= 0.04
 		NotificationFrame.BackgroundTransparency -= 0.05
 		NotificationText.TextTransparency -= 0.05
-		wait(0.01)
+		task.wait(0.01)
 	end
 	
-	wait(2)
+	task.wait(2)
 
 	for i = 1,20 do
 		NotificationFrame.BackgroundTransparency += 0.05
@@ -1541,7 +1541,7 @@ local function IntroAnim()
 		NotifFade.BackgroundTransparency += 0.04
 		NotificationFrame.BackgroundTransparency += 0.05
 		NotificationText.TextTransparency += 0.05
-		wait(0.01)
+		task.wait(0.01)
 	end
 	
 	ScrollingFrame.Visible = true
@@ -1567,7 +1567,7 @@ local function OutroAnim()
 			NotificationText.TextTransparency += 0.05
 			NotifYes.Transparency += 0.05
 			NotifNo.Transparency += 0.05
-			wait(0.01)
+			task.wait(0.01)
 		end
 		
 		NotifYes.Visible = false
@@ -1581,14 +1581,14 @@ local function OutroAnim()
 			NotifFade.BackgroundTransparency -= 0.04
 			NotificationFrame.BackgroundTransparency -= 0.05
 			NotificationText.TextTransparency -= 0.05
-			wait(0.01)
+			task.wait(0.01)
 		end
 		
-		wait(2)
+		task.wait(2)
 		
 		game:GetService('TweenService'):Create(MainShadow, TweenInfo.new(2,Enum.EasingStyle.Exponential,Enum.EasingDirection.In), {Position = MainShadow.Position + UDim2.new(0,0,1.5,0)}):Play()
 		
-		wait(1)
+		task.wait(1)
 		
 		for i = 1,20 do
 			MainShadow.ImageTransparency += 0.05
@@ -1613,10 +1613,10 @@ local function OutroAnim()
 			NotifFade.BackgroundTransparency += 0.04
 			NotificationFrame.BackgroundTransparency += 0.05
 			NotificationText.TextTransparency += 0.05
-			wait(0.01)
+			task.wait(0.01)
 		end
 		
-		wait(1)
+		task.wait(1)
 		
 		OutroEnded = true
 	end
@@ -1657,7 +1657,7 @@ local function CNIAnim()
 		NotificationText.TextTransparency -= 0.05
 		NotifNo.Transparency -= 0.05
 		NotifYes.Transparency -= 0.05
-		wait(0.01)
+		task.wait(0.01)
 	end
 	
 end
@@ -1675,7 +1675,7 @@ local function CNOAnim()
 			NotificationText.TextTransparency += 0.05
 			NotifNo.Transparency += 0.05
 			NotifYes.Transparency += 0.05
-			wait(0.01)
+			task.wait(0.01)
 		end
 	
 		ScrollingFrame.Visible = true
@@ -1695,7 +1695,7 @@ Safeplace.MouseButton1Click:connect(function()
 	Teleporting2Location = true
 	cam.CameraType = "Custom"
 	LPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = SafeplacePart.CFrame + Vector3.new(0,10,0)
-	wait(0.02)
+	task.wait(0.02)
 	Teleporting2Location = false
 end)
 
@@ -1758,7 +1758,7 @@ ChasePlayer.MouseButton1Click:connect(function()
 
 							cam.CameraType = "Attach"
 							LPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CurrentPlayer.Character:WaitForChild("HumanoidRootPart").CFrame - CurrentPlayer.Character:WaitForChild("HumanoidRootPart").CFrame.LookVector * 3
-							wait()
+							task.wait()
 
 						end
 						break
@@ -1792,7 +1792,7 @@ ChasePlayer.MouseButton1Click:connect(function()
 						if string.lower(CurrentPlayer.Name):sub(1, #PartialName) == string.lower(PartialName) then
 
 							LPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CurrentPlayer.Character:WaitForChild("HumanoidRootPart").CFrame - CurrentPlayer.Character:WaitForChild("HumanoidRootPart").CFrame.LookVector * 3
-							wait(0.01)
+							task.wait(0.01)
 
 							break
 
@@ -1848,12 +1848,12 @@ local function NotifCloseUI()
 				cam.CameraType = "Custom"
 				OutroAnim()
 				while OutroEnded == false do
-					wait() 
+					task.wait() 
 				end
 				GGTSB:Destroy()
 				script:Destroy()
 			end)
-			wait()
+			task.wait()
 		end
 
 		ScrollingFrame.Visible = true
@@ -1901,7 +1901,7 @@ Mountain.MouseButton1Click:Connect(function()
 	Teleporting2Location = true
 	cam.CameraType = "Custom"
 	LPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = MountainPart.CFrame + Vector3.new(0,6,0)
-	wait(0.02)
+	task.wait(0.02)
 	Teleporting2Location = false
 end)
 
@@ -2004,5 +2004,5 @@ Purple.MouseButton1Click:Connect(function()
 end)
 
 --IntroAnim Play
-wait(2)
+task.wait(2)
 IntroAnim()
