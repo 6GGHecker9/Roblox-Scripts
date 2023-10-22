@@ -1451,6 +1451,7 @@ local IntroEnded = false
 local OutroEnded = false
 local CloseNotif = false
 local DisAnim = false
+local TabsHidden = false
 --local TargetChar = nil
 --local TargetName = nil
 --local prevCharName = nil
@@ -2001,6 +2002,25 @@ Purple.MouseButton1Click:Connect(function()
 	ThemeFrame.BackgroundColor3 = Purple.BackgroundColor3
 	DisableAnimFrame.BackgroundColor3 = Purple.BackgroundColor3
 	DisAnimCheckMark.BackgroundColor3 = Purple.BackgroundColor3
+end)
+
+--Hide Tabs
+HideTabs.MouseButton1Click:Connect(Function()
+
+	if TabsHidden == false then
+
+		MainShadow.Size = UDim2.new(0,379,0,400,0)
+		BorderFrame.Size = UDim2.new(0,272,0,195)
+		MainFrame.Size = UDim2.new(0,259,0,180)
+
+	else
+
+		MainShadow.Size = UDim2.new(0,460,0,400,0)
+		BorderFrame.Size = UDim2.new(0,352,0,195)
+		MainFrame.Size = UDim2.new(0,340,0,180)
+
+	end
+		
 end)
 
 --IntroAnim Play
