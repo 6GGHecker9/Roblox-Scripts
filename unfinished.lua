@@ -2005,24 +2005,24 @@ Purple.MouseButton1Click:Connect(function()
 end)
 
 --Hide Tabs
---[[ HideTabs.MouseButton1Click:Connect(function()
+HideTabs.MouseButton1Click:Connect(function()
 
 	if TabsHidden == false then
 
-		MainShadow.Size = UDim2.new(0,379,0,400,0)
+		MainShadow.Size = UDim2.new(0,379,0,400)
 		BorderFrame.Size = UDim2.new(0,272,0,195)
 		MainFrame.Size = UDim2.new(0,259,0,180)
 
 	else
 
-		MainShadow.Size = UDim2.new(0,460,0,400,0)
+		MainShadow.Size = UDim2.new(0,460,0,400)
 		BorderFrame.Size = UDim2.new(0,352,0,195)
 		MainFrame.Size = UDim2.new(0,340,0,180)
 
 	end
 		
-end) --]]
+end)
 
 --IntroAnim Play
-task.wait(2)
+task.wait(1.5)
 IntroAnim()
