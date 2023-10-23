@@ -2012,7 +2012,7 @@ Purple.MouseButton1Click:Connect(function()
 	DisAnimCheckMark.BackgroundColor3 = Purple.BackgroundColor3
 end)
 
-RGB.MouseButton1Click:Connect(function()
+--[[ RGB.MouseButton1Click:Connect(function()
 	
 	local t = 10; --how long does it take to go through the rainbow
 
@@ -2044,7 +2044,7 @@ RGB.MouseButton1Click:Connect(function()
 		end)
 	end
 	
-end)
+end) --]]
 
 --Hide Tabs
 --[[ HideTabs.MouseButton1Click:Connect(function()
