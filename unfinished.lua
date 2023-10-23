@@ -1,10 +1,10 @@
 -- Script alr running?
 
-if game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild:("GGTSB") then
+--[[ if game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild:("GGTSB") then
 
 	script:Destroy()
 
-end
+end --]]
 
 -- Instances:
 
