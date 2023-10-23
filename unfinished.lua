@@ -1,11 +1,3 @@
--- Script alr running?
-
---[[ if game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild:("GGTSB") then
-
-	script:Destroy()
-
-end --]]
-
 -- Instances:
 
 local GGTSB = Instance.new("ScreenGui")
@@ -2012,52 +2004,18 @@ Purple.MouseButton1Click:Connect(function()
 	DisAnimCheckMark.BackgroundColor3 = Purple.BackgroundColor3
 end)
 
---[[ RGB.MouseButton1Click:Connect(function()
-	
-	local t = 10; --how long does it take to go through the rainbow
-
-	local tick = tick
-	local fromHSV = Color3.fromHSV
-	local RunService = game:GetService("RunService")
-
-	while not Green.MouseButton1Down and not Blue.MouseButton1Down and not Orange.MouseButton1Down and not Purple.MouseButton1Down do
-		RunService:BindToRenderStep("Rainbow", 1000, function()
-			local hue = tick() % t / t
-			local color = fromHSV(hue, 1, 1)
-			BorderFrame.BackgroundColor3 = color
-			G.TextColor3 = color
-			G2.TextColor3 = color
-			ChaseDurationFrame.BackgroundColor3 = color
-			ESPFrame.BackgroundColor3 = color
-			FlingDurationFrame.BackgroundColor3 = color
-			FlingFrame.BackgroundColor3 = color
-			HotkeyFrame.BackgroundColor3 = color
-			SearchPlayerFrame.BackgroundColor3 = color
-			TeleportLocationFrame.BackgroundColor3 = color
-			TeleportPlayerFrame.BackgroundColor3 = color
-			Username.TextColor3 = color
-			Transparency.BackgroundColor3 = color
-			TransparencyCornerFrame.BackgroundColor3 = color
-			ThemeFrame.BackgroundColor3 = color
-			DisableAnimFrame.BackgroundColor3 = color
-			DisAnimCheckMark.BackgroundColor3 = color
-		end)
-	end
-	
-end) --]]
-
 --Hide Tabs
 --[[ HideTabs.MouseButton1Click:Connect(function()
 
 	if TabsHidden == false then
 
-		MainShadow.Size = UDim2.new(0,379,0,400)
+		MainShadow.Size = UDim2.new(0,379,0,400,0)
 		BorderFrame.Size = UDim2.new(0,272,0,195)
 		MainFrame.Size = UDim2.new(0,259,0,180)
 
 	else
 
-		MainShadow.Size = UDim2.new(0,460,0,400)
+		MainShadow.Size = UDim2.new(0,460,0,400,0)
 		BorderFrame.Size = UDim2.new(0,352,0,195)
 		MainFrame.Size = UDim2.new(0,340,0,180)
 
