@@ -1,3 +1,11 @@
+-- Script alr running?
+
+if game:GetService("Players").LocalPlayer:WaitForChild("PlayerGui"):FindFirstChild:("GGTSB") then
+
+	script:Destroy()
+
+end
+
 -- Instances:
 
 local GGTSB = Instance.new("ScreenGui")
