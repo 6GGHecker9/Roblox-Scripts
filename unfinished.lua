@@ -793,6 +793,7 @@ x.Parent = MainFrame
 x.BackgroundColor3 = Color3.fromRGB(33, 34, 44)
 x.BorderColor3 = Color3.fromRGB(0, 0, 0)
 x.BorderSizePixel = 0
+x.AnchorPoint = Vector2.new(1,0)
 x.Position = UDim2.new(0.930000007, 0, 0, 0)
 x.Size = UDim2.new(0, 23, 0, 23)
 x.Font = Enum.Font.SourceSans
@@ -807,7 +808,8 @@ HideTabs.Parent = MainFrame
 HideTabs.BackgroundColor3 = Color3.fromRGB(33, 34, 44)
 HideTabs.BorderColor3 = Color3.fromRGB(0, 0, 0)
 HideTabs.BorderSizePixel = 0
-HideTabs.Position = UDim2.new(0.862999976, 0, 0, 0)
+HideTabs.AnchorPoint = Vector2.new(1,0)
+HideTabs.Position = UDim2.new(0, 23, 0, 0)
 HideTabs.Size = UDim2.new(0, 23, 0, 23)
 HideTabs.Font = Enum.Font.SourceSans
 HideTabs.Text = "[]"
@@ -821,7 +823,8 @@ OpenSettings.Parent = MainFrame
 OpenSettings.BackgroundColor3 = Color3.fromRGB(33, 34, 44)
 OpenSettings.BorderColor3 = Color3.fromRGB(0, 0, 0)
 OpenSettings.BorderSizePixel = 0
-OpenSettings.Position = UDim2.new(0.79400003, 0, 0, 0)
+OpenSettings.AnchorPoint = Vector2.new(1,0)
+OpenSettings.Position = UDim2.new(0, 46, 0, 0)
 OpenSettings.Size = UDim2.new(0, 23, 0, 23)
 OpenSettings.Image = "http://www.roblox.com/asset/?id=14134158045"
 
