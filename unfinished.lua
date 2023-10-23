@@ -2013,27 +2013,27 @@ RGB.MouseButton1Click:Connect(function()
 	local RunService = game:GetService("RunService")
 
 	while not Green.MouseButton1Down and not Blue.MouseButton1Down and not Orange.MouseButton1Down and not Purple.MouseButton1Down do
-	RunService:BindToRenderStep("Rainbow", 1000, function()
-		local hue = tick() % t / t
-		local color = fromHSV(hue, 1, 1)
-		BorderFrame.BackgroundColor3 = color
-		G.TextColor3 = color
-		G2.TextColor3 = color
-		ChaseDurationFrame.BackgroundColor3 = color
-		ESPFrame.BackgroundColor3 = color
-		FlingDurationFrame.BackgroundColor3 = color
-		FlingFrame.BackgroundColor3 = color
-		HotkeyFrame.BackgroundColor3 = color
-		SearchPlayerFrame.BackgroundColor3 = color
-		TeleportLocationFrame.BackgroundColor3 = color
-		TeleportPlayerFrame.BackgroundColor3 = color
-		Username.TextColor3 = color
-		Transparency.BackgroundColor3 = color
-		TransparencyCornerFrame.BackgroundColor3 = color
-		ThemeFrame.BackgroundColor3 = color
-		DisableAnimFrame.BackgroundColor3 = color
-		DisAnimCheckMark.BackgroundColor3 = color
-	end)
+		RunService:BindToRenderStep("Rainbow", 1000, function()
+			local hue = tick() % t / t
+			local color = fromHSV(hue, 1, 1)
+			BorderFrame.BackgroundColor3 = color
+			G.TextColor3 = color
+			G2.TextColor3 = color
+			ChaseDurationFrame.BackgroundColor3 = color
+			ESPFrame.BackgroundColor3 = color
+			FlingDurationFrame.BackgroundColor3 = color
+			FlingFrame.BackgroundColor3 = color
+			HotkeyFrame.BackgroundColor3 = color
+			SearchPlayerFrame.BackgroundColor3 = color
+			TeleportLocationFrame.BackgroundColor3 = color
+			TeleportPlayerFrame.BackgroundColor3 = color
+			Username.TextColor3 = color
+			Transparency.BackgroundColor3 = color
+			TransparencyCornerFrame.BackgroundColor3 = color
+			ThemeFrame.BackgroundColor3 = color
+			DisableAnimFrame.BackgroundColor3 = color
+			DisAnimCheckMark.BackgroundColor3 = color
+		end)
 	end
 	
 end)
