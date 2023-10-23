@@ -2014,7 +2014,7 @@ HideTabs.MouseButton1Click:Connect(function()
 		MainFrame.Size = UDim2.new(0,259,0,180)
 		ScrollingFrame.AnchorPoint = Vector2.new(0.5, 0)
 		ScrollingFrame.Position = UDim2.new(0.5, 0, 0.198405117, 0)
-		TabsScrollingFrame.Visible = false
+		TabScrollingFrame.Visible = false
 		TabsHidden = true
 
 	else
@@ -2024,7 +2024,7 @@ HideTabs.MouseButton1Click:Connect(function()
 		MainFrame.Size = UDim2.new(0,340,0,180)
 		scrollingFrame.AnchorPoint = Vector2.new(0,0)
 		ScrollingFrame.Position = UDim2.new(0.254038721, 0, 0.198405117, 0)
-		TabsScrollingFrame.Visible = true
+		TabScrollingFrame.Visible = true
 		TabsHidden = false
 
 	end
