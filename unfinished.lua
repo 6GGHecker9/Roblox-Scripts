@@ -793,7 +793,7 @@ x.Parent = MainFrame
 x.BackgroundColor3 = Color3.fromRGB(33, 34, 44)
 x.BorderColor3 = Color3.fromRGB(0, 0, 0)
 x.BorderSizePixel = 0
-x.Position = UDim2.new(0, 0, 0, 0)
+x.Position = UDim2.new(0.930000007, 0, 0, 0)
 x.Size = UDim2.new(0, 23, 0, 23)
 x.Font = Enum.Font.SourceSans
 x.Text = "×"
@@ -807,7 +807,7 @@ HideTabs.Parent = MainFrame
 HideTabs.BackgroundColor3 = Color3.fromRGB(33, 34, 44)
 HideTabs.BorderColor3 = Color3.fromRGB(0, 0, 0)
 HideTabs.BorderSizePixel = 0
-HideTabs.Position = UDim2.new(0, 23, 0, 0)
+HideTabs.Position = UDim2.new(0.862999976, 0, 0, 0)
 HideTabs.Size = UDim2.new(0, 23, 0, 23)
 HideTabs.Font = Enum.Font.SourceSans
 HideTabs.Text = "[]"
@@ -821,7 +821,7 @@ OpenSettings.Parent = MainFrame
 OpenSettings.BackgroundColor3 = Color3.fromRGB(33, 34, 44)
 OpenSettings.BorderColor3 = Color3.fromRGB(0, 0, 0)
 OpenSettings.BorderSizePixel = 0
-OpenSettings.Position = UDim2.new(0, 46, 0, 0)
+OpenSettings.Position = UDim2.new(0.79400003, 0, 0, 0)
 OpenSettings.Size = UDim2.new(0, 23, 0, 23)
 OpenSettings.Image = "http://www.roblox.com/asset/?id=14134158045"
 
@@ -2005,32 +2005,24 @@ Purple.MouseButton1Click:Connect(function()
 end)
 
 --Hide Tabs
-HideTabs.MouseButton1Click:Connect(function()
+--[[ HideTabs.MouseButton1Click:Connect(function()
 
 	if TabsHidden == false then
 
-		MainShadow.Size = UDim2.new(0,379,0,400)
+		MainShadow.Size = UDim2.new(0,379,0,400,0)
 		BorderFrame.Size = UDim2.new(0,272,0,195)
 		MainFrame.Size = UDim2.new(0,259,0,180)
-		ScrollingFrame.AnchorPoint = Vector2.new(0.5, 0)
-		ScrollingFrame.Position = UDim2.new(0.5, 0, 0.198405117, 0)
-		TabScrollingFrame.Visible = false
-		TabsHidden = true
 
 	else
 
-		MainShadow.Size = UDim2.new(0,460,0,400)
+		MainShadow.Size = UDim2.new(0,460,0,400,0)
 		BorderFrame.Size = UDim2.new(0,352,0,195)
 		MainFrame.Size = UDim2.new(0,340,0,180)
-		scrollingFrame.AnchorPoint = Vector2.new(0,0)
-		ScrollingFrame.Position = UDim2.new(0.254038721, 0, 0.198405117, 0)
-		TabScrollingFrame.Visible = true
-		TabsHidden = false
 
 	end
 		
-end)
+end) --]]
 
 --IntroAnim Play
-task.wait(1.5)
+task.wait(2)
 IntroAnim()
