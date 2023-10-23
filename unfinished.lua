@@ -2004,6 +2004,39 @@ Purple.MouseButton1Click:Connect(function()
 	DisAnimCheckMark.BackgroundColor3 = Purple.BackgroundColor3
 end)
 
+RGB.MouseButton1Click:Connect(function()
+	
+	local t = 10; --how long does it take to go through the rainbow
+
+	local tick = tick
+	local fromHSV = Color3.fromHSV
+	local RunService = game:GetService("RunService")
+
+	while not Green.MouseButton1Down and not Blue.MouseButton1Down and not Orange.MouseButton1Down and not Purple.MouseButton1Down do
+	RunService:BindToRenderStep("Rainbow", 1000, function()
+		local hue = tick() % t / t
+		local color = fromHSV(hue, 1, 1)
+		BorderFrame.BackgroundColor3 = Purple.BackgroundColor3
+		G.TextColor3 = Purple.BackgroundColor3
+		G2.TextColor3 = Purple.BackgroundColor3
+		ChaseDurationFrame.BackgroundColor3 = Purple.BackgroundColor3
+		ESPFrame.BackgroundColor3 = Purple.BackgroundColor3
+		FlingDurationFrame.BackgroundColor3 = Purple.BackgroundColor3
+		FlingFrame.BackgroundColor3 = Purple.BackgroundColor3	
+		HotkeyFrame.BackgroundColor3 = Purple.BackgroundColor3
+		SearchPlayerFrame.BackgroundColor3 = Purple.BackgroundColor3
+		TeleportLocationFrame.BackgroundColor3 = Purple.BackgroundColor3
+		TeleportPlayerFrame.BackgroundColor3 = Purple.BackgroundColor3
+		Username.TextColor3 = Purple.BackgroundColor3
+		Transparency.BackgroundColor3 = Purple.BackgroundColor3
+		TransparencyCornerFrame.BackgroundColor3 = Purple.BackgroundColor3
+		ThemeFrame.BackgroundColor3 = Purple.BackgroundColor3	
+		DisableAnimFrame.BackgroundColor3 = Purple.BackgroundColor3
+		DisAnimCheckMark.BackgroundColor3 = Purple.BackgroundColor3
+	end)
+	
+end)
+
 --Hide Tabs
 --[[ HideTabs.MouseButton1Click:Connect(function()
 
