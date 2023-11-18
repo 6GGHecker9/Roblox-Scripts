@@ -2012,6 +2012,7 @@ HideTabs.MouseButton1Click:Connect(function()
 		MainShadow.Size = UDim2.new(0,379,0,400,0)
 		BorderFrame.Size = UDim2.new(0,272,0,195)
 		MainFrame.Size = UDim2.new(0,259,0,180)
+		TabScrollingFrame.Visible = false
 		TabsHidden = true
 			
 	else
@@ -2019,6 +2020,7 @@ HideTabs.MouseButton1Click:Connect(function()
 		MainShadow.Size = UDim2.new(0,460,0,400,0)
 		BorderFrame.Size = UDim2.new(0,352,0,195)
 		MainFrame.Size = UDim2.new(0,340,0,180)
+		TabScrollingFrame.Visible = true
 		TabsHidden = false
 
 	end
