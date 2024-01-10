@@ -1755,19 +1755,15 @@ ChasePlayer.MouseButton1Click:connect(function()
 					if string.lower(CurrentPlayer.Name):sub(1, #PartialName) == string.lower(PartialName) then
 						if Teleporting2Location == true then
 							break
-						elseif not CurrentPlayer then 
-							break
-						else
-								
+						else	
 							cam.CameraType = "Attach"
 							LPlayer.Character:WaitForChild("HumanoidRootPart").CFrame = CurrentPlayer.Character:WaitForChild("HumanoidRootPart").CFrame - CurrentPlayer.Character:WaitForChild("HumanoidRootPart").CFrame.LookVector * 3
-							task.wait()
 
 						end
 						break
 					end
 				end
-
+                                task.wait()
 			end
 
 			cam.CameraType = "Attach"
