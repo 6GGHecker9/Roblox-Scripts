@@ -2025,8 +2025,28 @@ HideTabs.MouseButton1Click:Connect(function()
 		
 end)
 
+WelcomeTab.MouseButton1Click:Connect(function()
+	ScrollingFrame.CanvasPosition = Vector2.new(0,0)
+end)
+
 SearchPlayerTab.MouseButton1Click:Connect(function()
 	ScrollingFrame.CanvasPosition = Vector2.new(0,75)
+end)
+
+TeleportTab.MouseButton1Click:Connect(function()
+	ScrollingFrame.CanvasPosition = Vector2.new(0,136)
+end)
+
+FlingTab.MouseButton1Click:Connect(function()
+	ScrollingFrame.CanvasPosition = Vector2.new(0,281)
+end)
+
+DurationTab.MouseButton1Click:Connect(function()
+	ScrollingFrame.CanvasPostion = Vector2.new(0,333)
+end)
+
+HotkeyTab.MouseButton1Click:Connect(function()
+	ScrollingFrame.CanvasPostion = Vector2.new(0,532.5)
 end)
 
 --IntroAnim Play
