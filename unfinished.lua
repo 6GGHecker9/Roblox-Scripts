@@ -2025,6 +2025,10 @@ HideTabs.MouseButton1Click:Connect(function()
 		
 end)
 
+SearchPlayerTab.MouseButton1Click:Connect(function()
+	ScrollingFrame.CanvasPosition = Vector2.new(0,75)
+end)
+
 --IntroAnim Play
 task.wait(2)
 IntroAnim()
