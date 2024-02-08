@@ -46,4 +46,4 @@ MainFrameBorder.AnchorPoint = Vector2.new(0.5,0.5)
 MainFrameBorder.Position = UDim2.new(0.5, 0, 0.5, 0)
 MainFrameBorder.Size = UDim2.new(0, 353, 0, 195)
 
-print("c")
+print("a")
