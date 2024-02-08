@@ -2051,7 +2051,7 @@ end)
 
 local function changeCam()
 	while true do
-		if CDB = false then
+		if CDB == false then
 			cam.CameraType = "Custom"
 		end
 		task.wait()
