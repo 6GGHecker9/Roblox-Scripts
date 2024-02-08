@@ -42,6 +42,7 @@ MainFrameBorder.Name = "MainFrameBorder"
 MainFrameBorder.BackgroundColor3 = Color3.fromRGB(57, 255, 87)
 MainFrameBorder.BorderColor3 = Color3.fromRGB(0, 0, 0)
 MainFrameBorder.BorderSizePixel = 0
-MainFrameBorder.Position = UDim2.new(0.0519468747, 0, 0.171356052, 0)
+MainFrameBorder.AnchorPoint = Vector2.new(0.5,0.5)
+MainFrameBorder.Position = UDim2.new(0.5, 0, 0.5, 0)
 MainFrameBorder.Size = UDim2.new(0, 353, 0, 195)
 
