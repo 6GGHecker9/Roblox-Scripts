@@ -30,7 +30,7 @@ MainFrameShadow.Name = "MainFrameShadow"
 MainFrameShadow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
 MainFrameShadow.BackgroundTransparency = 1.000
 MainFrameShadow.AnchorPoint = Vector2.new(0.5,0.5)
-MainFrameShadow.Position = UDim2.new(0.5, -40, 0.5, -40)
+MainFrameShadow.Position = UDim2.new(0.55, 0, 0.45, 0)
 MainFrameShadow.Size = UDim2.new(0, 460, 0, 400)
 MainFrameShadow.Image = "rbxassetid://9140300475"
 MainFrameShadow.ScaleType = Enum.ScaleType.Slice
@@ -46,4 +46,4 @@ MainFrameBorder.AnchorPoint = Vector2.new(0.5,0.5)
 MainFrameBorder.Position = UDim2.new(0.5, 0, 0.5, 0)
 MainFrameBorder.Size = UDim2.new(0, 353, 0, 195)
 
-print("a")
+print("b")
