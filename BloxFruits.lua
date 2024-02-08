@@ -17,6 +17,15 @@ SettingsFrame.Size = UDim2.new(0,1,0,1)
 
 local MainFrameShadow = Instance.new("ImageLabel")
 MainFrameShadow.Parent = MainFrame
+MainFrameShadow.Name = "MainFrameShadow"
+MainFrameShadow.BackgroundColor3 = Color3.fromRGB(255, 255, 255)
+MainFrameShadow.BackgroundTransparency = 1.000
+MainFrameShadow.AnchorPoint = Vector2.new(0.5,0.5)
+MainFrameShadow.Position = UDim2.new(0.5, 0, 0.5, 0)
+MainFrameShadow.Size = UDim2.new(0, 460, 0, 400)
+MainFrameShadow.Image = "rbxassetid://9140300475"
+MainFrameShadow.ScaleType = Enum.ScaleType.Slice
+MainFrameShadow.SliceCenter = Rect.new(283, 357, 304, 434)
 
 local MainFrameBorder = Instance.new("Frame")
 MainFrameBorder.Parent = MainFrame
