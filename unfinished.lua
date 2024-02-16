@@ -2049,7 +2049,7 @@ HotkeyTab.MouseButton1Click:Connect(function()
 	ScrollingFrame.CanvasPostion = Vector2.new(0,532.5)
 end)
 
-local function changeCam()
+--[[local function changeCam()
 	while true do
 		if CDB == false then
 			cam.CameraType = "Custom"
@@ -2058,7 +2058,7 @@ local function changeCam()
 	end
 end
 
-changeCam()
+changeCam()]]
 
 --IntroAnim Play
 task.wait(2)
