@@ -7,4 +7,5 @@ light.Brightness = 30
 
 while true do
   part.CFrame = game.Workspace.CurrentCamera.CFrame
+  task.wait()
 end
